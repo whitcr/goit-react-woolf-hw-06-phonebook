@@ -7,7 +7,7 @@ import { setFilterAction } from '../redux/filterSlice';
 
 export const App = () => {
   const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
+  const filters = useSelector(state => state.filter);
   const dispatch = useDispatch();
 
   const handleFilterChange = e => {
@@ -33,7 +33,7 @@ export const App = () => {
 
   const getFilteredContacts = () => {
     return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+      contact.name.toLowerCase().includes(filters.toLowerCase())
     );
   };
 
@@ -43,7 +43,7 @@ export const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={handleFilterChange} />
+      <Filter value={filters} onChange={handleFilterChange} />
       <ContactList
         contacts={filteredContacts}
         onDeleteContact={deleteContact}
