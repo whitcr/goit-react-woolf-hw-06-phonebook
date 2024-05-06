@@ -20,7 +20,7 @@ export const App = () => {
     );
 
     if (isDuplicate) {
-      alert(`${newContact.name} is already in contacts. `);
+      alert(`${newContact.name} is already in contacts.`);
       return;
     }
 
